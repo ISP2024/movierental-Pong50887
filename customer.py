@@ -1,6 +1,5 @@
 from rental import Rental
-from movie import Movie
-import logging
+
 
 class Customer:
     """A customer who rents movies.
@@ -23,6 +22,10 @@ class Customer:
     def get_name(self):
         """Get the customer's name."""
         return self.name
+
+    def get_total_amount(self) -> float:
+        """Compute the total amount for all rentals."""
+        return sum(rental.get_price() for rental in self.rentals)
     
     def statement(self):
         """Create a statement of rentals for the current period.
@@ -33,7 +36,6 @@ class Customer:
         Returns:
             the statement as a String
         """
-        total_amount = 0   # total rental charges
         frequent_renter_points = 0
         # the .format method substitutes actual values into the fmt string
         statement = f"Rental Report for {self.name}\n\n"
@@ -47,10 +49,10 @@ class Customer:
                 rental.get_movie().get_title(),
                 rental.get_days_rented(),
                 rental.get_price())  # Inlining the temp variable
-
-            total_amount += rental.get_price()
             # compute the frequent renter points based on movie price code
             frequent_renter_points += rental.rental_points()
+        # get all the total amount
+        total_amount = self.get_total_amount()
 
         # footer: summary of charges
         statement += "\n"
