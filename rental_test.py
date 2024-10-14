@@ -39,3 +39,12 @@ class RentalTest(unittest.TestCase):
         rental = Rental(movie, 4)
         self.assertAlmostEqual(rental.get_price(), 3.0)
 
+    def test_rental_points_regular(self):
+        movie = Movie("Regular Movie", Movie.REGULAR)
+        rental = Rental(movie, 3)
+        self.assertEqual(rental.rental_points(), 1)
+
+    def test_rental_points_childrens(self):
+        movie = Movie("Children's Movie", Movie.CHILDRENS)
+        rental = Rental(movie, 4)
+        self.assertEqual(rental.rental_points(), 1)
