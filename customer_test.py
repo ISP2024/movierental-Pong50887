@@ -48,3 +48,14 @@ class CustomerTest(unittest.TestCase):
         # Check the total charge
         total_charge = self.c.get_total_amount()
         self.assertAlmostEqual(total_charge, 18.50, places=2)
+
+    def test_get_total_points(self):
+        """Test the total points calculation for multiple rentals."""
+        # Add multiple rentals
+        self.c.add_rental(Rental(self.new_movie, 4))
+        self.c.add_rental(Rental(self.regular_movie, 3))
+        self.c.add_rental(Rental(self.childrens_movie, 4))
+
+        # Check the total charge
+        total_renter_points = self.c.get_total_renter_points()
+        self.assertEqual(total_renter_points, 6)
