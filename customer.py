@@ -49,7 +49,7 @@ class Customer:
         for rental in self.rentals:
             # compute rental change
             statement += rental_fmt.format(
-                rental.get_movie().get_title(),
+                rental.get_movie().title,
                 rental.get_days_rented(),
                 rental.get_price())  # Inlining the temp variable
             # compute the frequent renter points based on movie price code
