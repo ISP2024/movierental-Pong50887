@@ -1,4 +1,7 @@
 from abc import ABC, abstractmethod
+from datetime import datetime
+
+from movie import Movie
 
 
 class PriceStrategy(ABC):
@@ -67,3 +70,18 @@ class ChildrensPrice(PriceStrategy):
 NEW_RELEASE = NewRelease()
 REGULAR = RegularPrice()
 CHILDREN = ChildrensPrice()
+
+def price_code_for_movie(movie: Movie) -> PriceStrategy:
+    """Determine the price code for a given movie."""
+    current_year = datetime.now().year
+
+    if movie.year == current_year:
+        return NEW_RELEASE
+    elif any(genre.lower() == "children" for genre in movie.genre):
+        return CHILDREN
+    else:
+        return REGULAR
+
+def get_price_for_movie(movie: Movie, days: int) -> float:
+    price_strategy = price_code_for_movie(movie)
+    return price_strategy.get_price(days)

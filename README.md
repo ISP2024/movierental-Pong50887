@@ -30,3 +30,17 @@ See [Resources](https://cpske.github.io/ISP/assignment/movierental/movierental-p
 ### 2.2 What design principle suggests this refactoring? Why?
 
 The **Single Responsibility Principle (SRP)** suggests this refactoring. SRP states that a class should have only one reason to change.
+
+### 5.2 Document the reason(s) for your choice
+
+1. **Low Coupling**:
+   - By placing the `price_code_for_movie` function in the `pricing` module, we maintain low coupling between the movie management logic and the pricing strategy. This separation allows for easier changes in pricing logic without affecting the core functionality of movie handling. Future modifications to pricing strategies can be managed independently.
+
+2. **High Cohesion**:
+    - The `pricing` module is dedicated to all aspects related to pricing strategies. Implementing `price_code_for_movie` here ensures that the function is closely related to its context, enhancing the cohesion of the module.
+   
+3. **Single Responsibility Principle**:
+   - The `pricing` module is solely responsible for handling pricing-related concerns. The `price_code_for_movie` method is directly responsible for determining the price code based on the attributes of a `Movie` object. 
+
+4. **Information Expert**:
+   -The `Movie` class contains the necessary information (e.g., `year` and `genre`) to determine the price code. By implementing the function in the `pricing` module, we can leverage this information while keeping the pricing logic centralized.
