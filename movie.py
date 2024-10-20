@@ -1,4 +1,4 @@
-import PriceStrategy
+import pricing
 
 
 class Movie:
@@ -10,7 +10,7 @@ class Movie:
     NEW_RELEASE = 1
     CHILDRENS = 2
     
-    def __init__(self, title, price_code, price_strategy: PriceStrategy):
+    def __init__(self, title, price_code, price_strategy: pricing):
         # Initialize a new movie. 
         self.title = title
         self.price_strategy = price_strategy

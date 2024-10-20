@@ -1,7 +1,7 @@
 import re
 import unittest
 
-import PriceStrategy
+import pricing
 from customer import Customer
 from rental import Rental
 from movie import Movie
@@ -17,9 +17,9 @@ class CustomerTest(unittest.TestCase):
         movies = list of some movies
         """
         self.c = Customer("Movie Mogul")
-        self.new_movie = Movie("Mulan", Movie.NEW_RELEASE, PriceStrategy.NEW_RELEASE)
-        self.regular_movie = Movie("CitizenFour", Movie.REGULAR, PriceStrategy.REGULAR)
-        self.childrens_movie = Movie("Frozen", Movie.CHILDRENS, PriceStrategy.CHILDREN)
+        self.new_movie = Movie("Mulan", Movie.NEW_RELEASE, pricing.NEW_RELEASE)
+        self.regular_movie = Movie("CitizenFour", Movie.REGULAR, pricing.REGULAR)
+        self.childrens_movie = Movie("Frozen", Movie.CHILDRENS, pricing.CHILDREN)
 
     @unittest.skip("No convenient way to test")
     def test_billing(self):

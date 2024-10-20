@@ -4,17 +4,17 @@
 from movie import Movie
 from rental import Rental
 from customer import Customer
-import PriceStrategy
+import pricing
 
 
 def make_movies():
     """Some sample movies."""
     movies = [
-        Movie("Air", Movie.NEW_RELEASE, PriceStrategy.NEW_RELEASE),
-        Movie("Oppenheimer", Movie.REGULAR, PriceStrategy.REGULAR),
-        Movie("Frozen", Movie.CHILDRENS, PriceStrategy.CHILDREN),
-        Movie("Bitconned", Movie.NEW_RELEASE, PriceStrategy.NEW_RELEASE),
-        Movie("Particle Fever", Movie.REGULAR, PriceStrategy.REGULAR)
+        Movie("Air", Movie.NEW_RELEASE, pricing.NEW_RELEASE),
+        Movie("Oppenheimer", Movie.REGULAR, pricing.REGULAR),
+        Movie("Frozen", Movie.CHILDRENS, pricing.CHILDREN),
+        Movie("Bitconned", Movie.NEW_RELEASE, pricing.NEW_RELEASE),
+        Movie("Particle Fever", Movie.REGULAR, pricing.REGULAR)
     ]
     return movies
 
