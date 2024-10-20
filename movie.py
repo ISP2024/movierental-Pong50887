@@ -25,11 +25,3 @@ class Movie:
     
     def __str__(self):
         return self.title
-
-    def get_price(self, days: int) -> float:
-        """Compute the rental price for this movie."""
-        return self.price_strategy.get_price(days)
-
-    def get_rental_points(self, days: int) -> int:
-        """Compute frequent renter points for this movie."""
-        return self.price_strategy.get_rental_points(days)
